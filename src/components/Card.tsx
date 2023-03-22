@@ -7,20 +7,20 @@ import { HomePageVideos } from "../Types"
 
 const Card = ({ data }: { data: HomePageVideos }) => {
     return (
-        <div className="w-64 h-60 flex gap-3 flex-col">
+        <div className="w-[260px] h-60 flex gap-3 flex-col">
             <div className="relative">
-                <span className="absolute bottom-3 right-3 text-sm bg-gray-900 px-2 py-0.5 z-10">
+                <span className="absolute bottom-1 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10">
                     {data.videoDuration}
                 </span>
                 <Link to={`/watch/${data.videoId}`}>
                     <img
-                        className="h-44 w-72 "
+                        className="w-[320px] h-[180px] rounded-xl hover:rounded-none transition-all duration-500 "
                         src={data.videoThumbnail}
                         alt="tumbnail" />
                 </Link>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 ">
                 <div className="min-w-fit ">
                     <a
                         href="/">

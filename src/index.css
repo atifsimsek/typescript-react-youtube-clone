@@ -3,9 +3,13 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #181818;
     color: #ffffff;
-  
+    @apply bg-bgPrimary
+}
+
+.infinite-scroll-component__outerdiv {
+    width: 100% !important;
+
 }
 
 @tailwind base;

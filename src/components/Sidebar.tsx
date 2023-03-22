@@ -119,10 +119,10 @@ const Sidebar = () => {
     ];
 
     return (
-        <aside className="w-2/12  bg-[#212121] pr-5 overflow-auto pb-8 sidebar">
+        <aside className="w-[260px] hidden sm:block  bg-bgPrimary pr-5 overflow-auto pb-8 sidebar">
             <ul className="flex flex-col border-b-[0.5px] border-border">
                 {mainLinks.map(({ icon, name }, index) => (
-                    <li className={`pl-6 py-3  hover:bg-bgNav ${name === "Home" ? "bg-bgNav " : ""}`} key={index}>
+                    <li className={`pl-6 py-3 hover:bg-bgNav hover:rounded-xl  ${name === "Home" ? "bg-bgNav rounded-xl" : ""}`} key={index}>
                         <a href="/" className="flex items-center gap-5">
                             <span className="shrink-0">{icon}</span>
                             <span className="text-sm tracking-wider">{name}</span>
@@ -132,7 +132,7 @@ const Sidebar = () => {
             </ul>
             <ul className="flex flex-col border-b-[0.5px] border-border">
                 {secondaryLinks.map(({ icon, name }, index) => (
-                    <li className={`pl-6 py-3  hover:bg-bgNav`} key={name}>
+                    <li className={`pl-6 py-3  hover:bg-bgNav hover:rounded-xl`} key={name}>
                         <a href="/" className="flex items-center gap-5">
                             <span className="shrink-0">{icon}</span>
                             <span className="text-sm tracking-wider">{name}</span>
@@ -142,7 +142,7 @@ const Sidebar = () => {
             </ul>
             <ul className="flex flex-col border-b-[0.5px] border-border">
                 {subscriptionLinks.map(({ icon, name }, index) => (
-                    <li className={`pl-6 py-3  hover:bg-bgNav ${name === "Home" ? "bg-slate-600 " : ""}`} key={index}>
+                    <li className={`pl-6 py-3  hover:bg-bgNav hover:rounded-xl ${name === "Home" ? "bg-slate-600 " : ""}`} key={index}>
                         <a href="/" className="flex items-center gap-5">
                             <span className="shrink-0">{icon}</span>
                             <span className="text-sm tracking-wider">{name}</span>
@@ -152,7 +152,7 @@ const Sidebar = () => {
             </ul>
             <ul className="flex flex-col border-b-[0.5px] border-border">
                 {helpLinks.map(({ icon, name }, index) => (
-                    <li className={`pl-6 py-3  hover:bg-bgNav ${name === "Home" ? "bg-slate-600 " : ""}`} key={index}>
+                    <li className={`pl-6 py-3  hover:bg-bgNav hover:rounded-xl ${name === "Home" ? "bg-slate-600 " : ""}`} key={index}>
                         <a href="/" className="flex items-center gap-5">
                             <span className="shrink-0">{icon}</span>
                             <span className="text-sm tracking-wider">{name}</span>

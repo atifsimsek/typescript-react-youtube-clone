@@ -29,7 +29,7 @@ const Home = () => {
 
 
   return (
-    <div className='max-h-screen overflow-hidden'>
+    <div className='max-h-screen overflow-hidden bg-bgPrimary'>
       <div className='h[6.5vh]'>
         <Navbar />
       </div>
@@ -42,9 +42,9 @@ const Home = () => {
             next={() => dispatch(getHomePageVideos(true))}
             hasMore={videos.length < 500}
             loader={<Spinner />}
-            height={650}
+            height={"100%"}
           >
-            <div className="grid gap-y-14 gap-x-8 grid-cols-4 p-8">
+            <div className="grid gap-y-20 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 place-items-center p-8">
               {videos.map((item: HomePageVideos, index: number) => (
                 <Card data={item} key={index} />
               ))}

@@ -29,9 +29,9 @@ const Navbar = () => {
 
 
     return (
-        <nav className="flex  justify-between items-center px-14 h-16 bg-[#212121] opacity-95 sticky top-0 z-50">
+        <nav className=" flex flex-col mt-6 sm:mt-0 sm:flex-row py-4  justify-center sm:justify-between items-center px-14 h-16 bg-bgPrimary opacity-95 sticky top-0 z-50">
             <div className="flex gap-8 items-center text-2xl">
-                <GiHamburgerMenu />
+                <GiHamburgerMenu className="hidden sm:inline" />
                 <Link to={"/"}>
                     <div className="flex gap-1 items-center justify-center">
                         <BsYoutube className="text-3xl text-red-600" />
@@ -39,17 +39,18 @@ const Navbar = () => {
                     </div>
                 </Link >
             </div>
-            <div className="flex items-center justify-center gap-5 ">
+            <div className="flex items-center  justify-center gap-5 ">
                 <form onSubmit={e => {
                     e.preventDefault()
                     handleSearch();
                 }}>
-                    <div className="flex bg-zinc-900  items-center h-10 px-4 pr-0" >
+                    <div className="flex mt-3 sm:mt-0 bg-zinc-900 rounded-full overflow-hidden   items-center h-10 px-4 pr-0" >
                         <div className="flex gap-4  items-center pr-5 ">
-                            <AiOutlineSearch className="text-xl" />
+
                             <input
+                                placeholder="Search"
                                 type={"text"}
-                                className="w-96 bg-zinc-900 focus:outline-none border-none "
+                                className="w-40 sm:w-96  bg-zinc-900 focus:outline-none border-none "
                                 value={searchTerm}
                                 onChange={(e) => { dispatch(changeSearchTerm(e.target.value)) }}
                             />
@@ -59,19 +60,19 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <button className="h-10 w-16 flex justify-center items-center bg-zinc-800">
+                        <button className="h-10 w-16 flex justify-center  items-center bg-zinc-800">
                             <AiOutlineSearch className="text-xl" />
                         </button>
                     </div>
                 </form>
-                <div className="text-xl p-3 bg-zinc-900 rounded-full">
+                <div className="text-xl p-3 mt-3 sm:mt-0 bg-zinc-900 rounded-full">
                     <TiMicrophone />
                 </div>
 
             </div>
-            <div className="flex shrink-0  items-center gap-5 text-xl">
+            <div className="hidden shrink-0 lg:flex items-center gap-5 text-xl">
                 <BsCameraVideo />
-                <IoAppsSharp />
+
                 <div className="relative">
                     <BsBell />
                     <span className="absolute bottom-2 left-2 text-xs bg-red-600 rounded-full px-1">

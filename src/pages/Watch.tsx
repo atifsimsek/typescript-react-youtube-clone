@@ -113,8 +113,9 @@ export default function Watch() {
                         </div>
                       </div>
                       <div
-                        className={`${!showMoreStatus ? "max-h-16 overflow-hidden" : ""
-                          } text-sm w-11/12`}
+                        className={`${
+                          !showMoreStatus ? "max-h-16 overflow-hidden" : ""
+                        } text-sm w-11/12`}
                       >
                         <pre
                           style={{

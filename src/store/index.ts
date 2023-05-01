@@ -6,61 +6,57 @@ import { getSearchPageVideos } from "./reducers/getSearchPageVideos";
 import { getVideoDetails } from "./reducers/getVideoDetails";
 
 const initialState: InitialState = {
-    videos: [],
-    currentPlaying: null,
-    searchTerm: "",
-    searhResults: [],
-    nextPageToken: null,
-    recommendedVideos: [],
-}
-
+  videos: [],
+  currentPlaying: null,
+  searchTerm: "",
+  searhResults: [],
+  nextPageToken: null,
+  recommendedVideos: [],
+};
 
 const YoutubeSlice = createSlice({
-    name: "youtubeApp",
-    initialState,
-    reducers: {
-        clearVideos: (state) => {
-            state.videos = [];
-            state.nextPageToken = null;
-        },
-        changeSearchTerm: (state, acition: PayloadAction<string>) => {
-            state.searchTerm = acition.payload
-        },
-        clearSearchTerm: (state) => {
-            state.searchTerm = "";
-        }
+  name: "youtubeApp",
+  initialState,
+  reducers: {
+    clearVideos: (state) => {
+      state.videos = [];
+      state.nextPageToken = null;
     },
-    extraReducers: (builder => {
-        builder.addCase(getHomePageVideos.fulfilled, (state, action) => {
-            state.videos = action.payload.parsedData;
-            state.nextPageToken = action.payload.nextPageToken
-        });
-        builder.addCase(getSearchPageVideos.fulfilled, (state, action) => {
-            state.videos = action.payload.parsedData;
-            state.nextPageToken = action.payload.nextPageToken
-        });
-        builder.addCase(getVideoDetails.fulfilled, (state, action) => {
-            state.currentPlaying = action.payload;
-
-        })
-        builder.addCase(getRecommendedVideos.fulfilled, (state, action) => {
-            state.recommendedVideos = action.payload.parsedData;
-
-        })
-    })
-})
-
+    changeSearchTerm: (state, acition: PayloadAction<string>) => {
+      state.searchTerm = acition.payload;
+    },
+    clearSearchTerm: (state) => {
+      state.searchTerm = "";
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getHomePageVideos.fulfilled, (state, action) => {
+      state.videos = action.payload.parsedData;
+      state.nextPageToken = action.payload.nextPageToken;
+    });
+    builder.addCase(getSearchPageVideos.fulfilled, (state, action) => {
+      state.videos = action.payload.parsedData;
+      state.nextPageToken = action.payload.nextPageToken;
+    });
+    builder.addCase(getVideoDetails.fulfilled, (state, action) => {
+      state.currentPlaying = action.payload;
+    });
+    builder.addCase(getRecommendedVideos.fulfilled, (state, action) => {
+      state.recommendedVideos = action.payload.parsedData;
+    });
+  },
+});
 
 export const store = configureStore({
-    reducer: {
-        youtubeApp: YoutubeSlice.reducer
-    }
-})
+  reducer: {
+    youtubeApp: YoutubeSlice.reducer,
+  },
+});
 
-export const { clearVideos, changeSearchTerm, clearSearchTerm } = YoutubeSlice.actions
+export const { clearVideos, changeSearchTerm, clearSearchTerm } =
+  YoutubeSlice.actions;
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 // export default YoutubeSlice.reducer

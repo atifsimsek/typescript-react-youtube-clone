@@ -1,64 +1,60 @@
-import { Link } from "react-router-dom"
-import { HomePageVideos } from "../Types"
+import { Link } from "react-router-dom";
+import { HomePageVideos } from "../Types";
 
 // interface Props {
 //     data: HomePageVideos
 // }
 
 const Card = ({ data }: { data: HomePageVideos }) => {
-    return (
-        <div className="w-[260px] h-60 flex gap-3 flex-col">
-            <div className="relative">
-                <span className="absolute bottom-1 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10">
-                    {data.videoDuration}
-                </span>
-                <Link to={`/watch/${data.videoId}`}>
-                    <img
-                        className="w-[320px] h-[180px] rounded-xl hover:rounded-none transition-all duration-500 "
-                        src={data.videoThumbnail}
-                        alt="tumbnail" />
-                </Link>
-            </div>
+  return (
+    <div className="w-[260px] h-60 flex gap-3 flex-col">
+      <div className="relative">
+        <span className="absolute bottom-1 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10">
+          {data.videoDuration}
+        </span>
+        <Link to={`/watch/${data.videoId}`}>
+          <img
+            className="w-[320px] h-[180px] rounded-xl hover:rounded-none transition-all duration-500 "
+            src={data.videoThumbnail}
+            alt="tumbnail"
+          />
+        </Link>
+      </div>
 
-            <div className="flex gap-2 ">
-                <div className="min-w-fit ">
-                    <a
-                        href="/">
-                        <img
-                            className="h-9 w-9 rounded-full"
-                            src={data.channelInfo.image}
-                            alt="channel" />
-                    </a>
-                </div>
-                <div>
-                    <h3>
-                        <a
-                            className="line-clamp-2"
-                            href="/">
-                            {data.videoTitle}
-                        </a>
-                    </h3>
-                    <div className="text-sm text-gray-400 ">
-                        <div>
-                            <a href="/" className="hover:text-white">
-                                {data.channelInfo.name}
-                            </a>
-                        </div>
-                        <div>
-                            <span className="after:content-['•'] after:mx-1">
-                                {data.videoViews}
-                            </span>
-                            <span>{data.videoAge}</span>
-                            <span>{}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+      <div className="flex gap-2 ">
+        <div className="min-w-fit ">
+          <a href="/">
+            <img
+              className="h-9 w-9 rounded-full"
+              src={data.channelInfo.image}
+              alt="channel"
+            />
+          </a>
         </div>
-    )
-}
+        <div>
+          <h3>
+            <a className="line-clamp-2" href="/">
+              {data.videoTitle}
+            </a>
+          </h3>
+          <div className="text-sm text-gray-400 ">
+            <div>
+              <a href="/" className="hover:text-white">
+                {data.channelInfo.name}
+              </a>
+            </div>
+            <div>
+              <span className="after:content-['•'] after:mx-1">
+                {data.videoViews}
+              </span>
+              <span>{data.videoAge}</span>
+              <span>{}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Card
+export default Card;
